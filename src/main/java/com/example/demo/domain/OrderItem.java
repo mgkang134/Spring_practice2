@@ -27,6 +27,11 @@ public class OrderItem {
 	
 	private int orderPrice;
 	private int count;
+	
+	
+	
+	private OrderItem() {
+	}
 	public Long getId() {
 		return id;
 	}
