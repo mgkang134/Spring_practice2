@@ -13,6 +13,7 @@ import com.example.demo.domain.item.Item;
 import com.example.demo.repository.ItemRepository;
 import com.example.demo.repository.MemberRepository;
 import com.example.demo.repository.OrderRepository;
+import com.example.demo.repository.OrderSearch;
 
 @Service
 @Transactional(readOnly = true)
@@ -57,9 +58,9 @@ public class OrderService {
 		order.cancel();
 	}
 	
-//	public List<Order> findOrders(OrderSearch orderSearch){
-//		return orderRepository.findAll(orderSearch);
-//	}
+	public List<Order> findOrders(OrderSearch orderSearch){
+		return orderRepository.findAllByString(orderSearch);
+	}
 	
 	
 	
