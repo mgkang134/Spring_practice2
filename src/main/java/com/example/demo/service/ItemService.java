@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.demo.domain.item.Book;
 import com.example.demo.domain.item.Item;
 import com.example.demo.repository.ItemRepository;
 
@@ -27,7 +28,16 @@ public class ItemService {
 		itemRepository.save(item);
 	}
 	
-	public List<Item> findItem(){
+	@Transactional
+	public void updateItem(Long itemId, Book param) {
+		Item findItem = itemRepository.findOne(itemId);
+		findItem.setPrice(param.getPrice());
+		findItem.setName(param.getName());
+		findItem.setStockQuantity(param.getStockQuantity());
+		itemRepository.save(findItem);
+	}
+	
+	public List<Item> findItems(){
 		return itemRepository.findAll();
 	}
 	
