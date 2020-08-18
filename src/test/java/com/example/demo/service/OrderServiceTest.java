@@ -1,11 +1,11 @@
 package com.example.demo.service;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import javax.persistence.EntityManager;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,14 +24,14 @@ import com.example.demo.repository.OrderRepository;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-class OrderServiceTest {
+public class OrderServiceTest {
 
 	@Autowired EntityManager em;
 	@Autowired OrderService orderService;
 	@Autowired OrderRepository orderRepository;
 	
 	@Test
-	void 상품주문() throws Exception{
+	public void 상품주문() throws Exception{
 		
 		//given
 		Member member = createMember();
@@ -69,7 +69,7 @@ class OrderServiceTest {
 	}
 
 	@Test
-	void 주문취소() throws Exception{
+	public void 주문취소() throws Exception{
 		
 		//given
 		Member member = createMember();
@@ -90,7 +90,7 @@ class OrderServiceTest {
 	}
 	
 	@Test
-	void 상품주문_재고수량초과() throws Exception{
+	public void 상품주문_재고수량초과() throws Exception{
 		
 		//given
 		Member member = createMember();

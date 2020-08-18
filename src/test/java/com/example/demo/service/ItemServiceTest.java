@@ -15,7 +15,7 @@ import com.example.demo.repository.ItemRepository;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-class ItemServiceTest {
+public class ItemServiceTest {
 
 	@Autowired private ItemService itemService;
 	@Autowired private ItemRepository itemRepository;
