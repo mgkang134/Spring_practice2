@@ -10,7 +10,7 @@ import com.example.demo.domain.Member;
 import com.example.demo.repository.MemberRepository;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class MemberService {
 
 	private final MemberRepository memberRepository;
@@ -21,7 +21,6 @@ public class MemberService {
 	}
 	
 	//회원가입
-	@Transactional(readOnly = true)
 	public Long join(Member member) {
 		validateDuplicateMember(member);
 		memberRepository.save(member);
@@ -36,12 +35,12 @@ public class MemberService {
 	}
 	
 	//회원 전체 조회
-	private List<Member> findMembers(){
+	public List<Member> findMembers(){
 		return memberRepository.findAll();
 	}
 	
 	//회원 한 건 조회
-	private Member findOne(Long memberId) {
+	public Member findOne(Long memberId) {
 		return memberRepository.findOne(memberId);
 	}
 	
